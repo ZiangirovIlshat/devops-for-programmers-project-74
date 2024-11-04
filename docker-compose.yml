@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: make test
+    image: ilshatziangirov1999/devops-for-programmers-project-74
