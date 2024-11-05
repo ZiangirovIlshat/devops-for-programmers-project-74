@@ -31,7 +31,7 @@ jobs:
 
       - name: Build and run tests
         run: |
-          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock your_image_name make ci
+          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock ilshatziangirov1999/devops-for-programmers-project-74 make ci
 
       - name: Build production image
         run: |
