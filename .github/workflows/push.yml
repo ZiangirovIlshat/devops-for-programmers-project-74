@@ -31,7 +31,7 @@ jobs:
 
       - name: Build and run tests
         run: |
-          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock ilshatziangirov1999/devops-for-programmers-project-74 make ci
+          docker run --rm -v ${{ github.workspace }}:/app -w /app ilshatziangirov1999/devops-for-programmers-project-74 make ci
 
       - name: Build production image
         run: |
