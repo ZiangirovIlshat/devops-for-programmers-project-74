@@ -29,9 +29,13 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Run tests using Docker Compose
+      - name: Build the test image
         run: |
-          docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
+          docker build -f Dockerfile -t my-app-test .
+
+      - name: Run tests
+        run: |
+          docker run --rm my-app-test make test
 
       - name: Build production image
         run: |
