@@ -10,6 +10,5 @@ COPY . .
 RUN make install
 
 RUN apt-get update && apt-get install -y docker-compose
-   
 
 CMD ["make", "test"]

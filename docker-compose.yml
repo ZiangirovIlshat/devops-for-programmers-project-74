@@ -6,4 +6,3 @@ services:
       context: .
       dockerfile: Dockerfile
     command: make test
-    image: ilshatziangirov1999/devops-for-programmers-project-74
