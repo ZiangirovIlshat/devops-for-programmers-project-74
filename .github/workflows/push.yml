@@ -29,9 +29,9 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and run tests
+      - name: Run tests using Docker Compose
         run: |
-          docker run --rm -v ${{ github.workspace }}:/app -w /app ilshatziangirov1999/devops-for-programmers-project-74 make ci
+          docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 
       - name: Build production image
         run: |
