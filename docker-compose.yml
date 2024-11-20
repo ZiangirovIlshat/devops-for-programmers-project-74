@@ -4,5 +4,6 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.production
+    image: ilshatziangirov1999/devops-for-programmers-project-74
     command: make test

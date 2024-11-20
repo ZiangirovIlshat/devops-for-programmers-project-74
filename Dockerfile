@@ -2,13 +2,10 @@ FROM node:20.12.2
 
 WORKDIR /app
 
-COPY /app/package.json ./
-COPY /app/package-lock.json ./
+COPY app/package.json app/package-lock.json ./
 
-COPY . .
+RUN npm install
 
-RUN make install
-
-RUN apt-get update && apt-get install -y docker-compose
+COPY app . 
 
 CMD ["make", "test"]
