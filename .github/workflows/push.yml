@@ -42,11 +42,6 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-buildx-
 
-    - name: Wait for PostgreSQL to be ready
-      run: |
-        chmod +x ./scripts/wait-for-it.sh
-        ./scripts/wait-for-it.sh db:5432 --timeout=30 --strict -- echo "PostgreSQL is up"
-
     - name: Run tests
       run: make ci
 
