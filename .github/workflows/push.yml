@@ -44,6 +44,13 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-buildx-
 
+    - name: Wait for the database to be ready
+      run: |
+        until pg_isready -h localhost -U ${{ secrets.DATABASE_USERNAME }}; do
+          echo "Waiting for database..."
+          sleep 2
+        done
+
     - name: Run tests
       run: |
          docker run -e DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }}
