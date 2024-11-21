@@ -1,4 +1,4 @@
-name: CI
+name: CI Pipeline
 
 on:
   push:
@@ -31,32 +31,9 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
-    - name: Install Docker Compose
+    - name: Build and run tests
       run: |
-        sudo apt-get update
-        sudo apt-get install -y docker-compose
-
-    - name: Cache Docker layers
-      uses: actions/cache@v2
-      with:
-        path: /tmp/.buildx-cache
-        key: ${{ runner.os }}-buildx-${{ github.sha }}
-        restore-keys: |
-          ${{ runner.os }}-buildx-
-
-    - name: Wait for the database to be ready
-      run: |
-        until pg_isready -h localhost -U ${{ secrets.DATABASE_USERNAME }}; do
-          echo "Waiting for database..."
-          sleep 2
-        done
-
-    - name: Run tests
-      run: |
-         docker run -e DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }}
-                    -e DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}
-                    -e DATABASE_HOST=db
-                    -p 5432:5432 ilshatziangirov1999/devops-for-programmers-project-74 make ci
+        docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 
     - name: Build Docker image
       run: docker build -t ilshatziangirov1999/devops-for-programmers-project-74:latest -f Dockerfile.production .
