@@ -10,10 +10,19 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      docker:
-        image: docker:19.03.12
+      db:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: ${{ secrets.DATABASE_USERNAME }}
+          POSTGRES_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          POSTGRES_DB: ${{ secrets.DATABASE_NAME }}
+        ports:
+          - 5432:5432
         options: >-
-          --privileged
+          --health-cmd "pg_isready -U ${{ secrets.DATABASE_USERNAME }}"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
     - name: Checkout code
@@ -36,7 +45,11 @@ jobs:
           ${{ runner.os }}-buildx-
 
     - name: Run tests
-      run: make ci
+      run: |
+         docker run -e DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }}
+                    -e DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}
+                    -e DATABASE_HOST=db
+                    -p 5432:5432 your_image_name make ci
 
     - name: Build Docker image
       run: docker build -t ilshatziangirov1999/devops-for-programmers-project-74:latest -f Dockerfile.production .
