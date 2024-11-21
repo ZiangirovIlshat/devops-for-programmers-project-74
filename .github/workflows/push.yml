@@ -38,7 +38,12 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd app && npm install
+        cd path/to/your/subdirectory && npm install  # Убедитесь, что путь правильный
+
+    - name: Install Docker Compose
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y docker-compose
 
     - name: Run tests
       run: |
