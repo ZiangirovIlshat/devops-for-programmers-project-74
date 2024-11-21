@@ -17,7 +17,7 @@ jobs:
           POSTGRES_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
           POSTGRES_DB: ${{ secrets.DATABASE_NAME }}
         options: >-
-          --health-cmd="pg_isready -U postgres"
+          --health-cmd="pg_isready -U ${{ secrets.DATABASE_USERNAME }}"
           --health-interval=5s
           --health-timeout=5s
           --health-retries=5
@@ -34,6 +34,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y docker-compose
 
+      - name: Check environment variables
+        run: |
+          echo "Database Username: ${{ secrets.DATABASE_USERNAME }}"
+          echo "Database Password: ${{ secrets.DATABASE_PASSWORD }}"
+          echo "Database Name: ${{ secrets.DATABASE_NAME }}"
+
       - name: Run tests
         run: docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 
@@ -44,4 +50,4 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: your-dockerhub-username/your-image-name:latest
+          tags: ilshatziangirov1999/devops-for-programmers-project-74:latest
