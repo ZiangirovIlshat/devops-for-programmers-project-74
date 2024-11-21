@@ -49,7 +49,7 @@ jobs:
          docker run -e DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }}
                     -e DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}
                     -e DATABASE_HOST=db
-                    -p 5432:5432 your_image_name make ci
+                    -p 5432:5432 ilshatziangirov1999/devops-for-programmers-project-74 make ci
 
     - name: Build Docker image
       run: docker build -t ilshatziangirov1999/devops-for-programmers-project-74:latest -f Dockerfile.production .
