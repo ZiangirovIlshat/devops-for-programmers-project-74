@@ -10,4 +10,4 @@ compose-dev:
 compose-install:
 	npm install
 
-compose-ci: compose-test
+ci: compose-test
