@@ -18,7 +18,7 @@ jobs:
 
       - name: Run tests
         run: |
-          make ci
+          make compose-ci
 
       - name: Build and Push Docker image
         uses: docker/build-push-action@v2
