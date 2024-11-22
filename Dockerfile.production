@@ -13,4 +13,4 @@ EXPOSE 8080
 ENV NODE_ENV=production
 RUN make build
 
-CMD ["make", "start"]
+CMD ["./wait-for-it.sh", "-t", "30", "db:5432", "--", "npm", "test"]

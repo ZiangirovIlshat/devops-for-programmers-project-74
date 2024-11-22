@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   db:
-    image: postgres:latest
+    image: postgres:15.2
     environment:
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
@@ -12,6 +12,7 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+
   app:
     depends_on:
       - db
@@ -19,4 +20,4 @@ services:
       context: .
       dockerfile: Dockerfile.production
     image: ilshatziangirov1999/devops-for-programmers-project-74
-    command: make test
+    command: ["make", "test"]

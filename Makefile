@@ -1,13 +1,13 @@
-setup:
+compose-setup:
 	docker-compose run --rm app make setup
 
-test:
+compose-test:
 	docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 
-dev:
+compose-dev:
 	docker-compose up
 
-install:
+compose-install:
 	npm install
 
-ci: test
+compose-ci: compose-test
