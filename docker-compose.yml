@@ -25,5 +25,5 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.production
-    image: ilshatziangirov1999/devops-for-programmers-project-74
+    image: local/devops-for-programmers-project-74
     command: ["make", "test"]
