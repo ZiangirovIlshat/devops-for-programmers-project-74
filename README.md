@@ -1,5 +1,5 @@
-#[![Actions Status](https://github.com/ZiangirovIlshat/devops-for-programmers-project-74/actions/workflows/hexlet-check.>[![CI/CD Pipeline](https://github.com/ZiangirovIlshat/devops-for-programmers-project-74/actions/workflows/push.yml/badg>
-
+[![Actions Status](https://github.com/ZiangirovIlshat/devops-for-programmers-project-74/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/ZiangirovIlshat/devops-for-programmers-project-74/actions)
+[![CI/CD Pipeline](https://github.com/ZiangirovIlshat/devops-for-programmers-project-74/actions/workflows/push.yml/badge.svg)](https://github.com/ZiangirovIlshat/devops-for-programmers-project-74/actions)
 # DevOps for Programmers Project 74
 
 ## Описание
@@ -16,17 +16,24 @@
 
 1. Клонируйте репозиторий:
 
-bash
-   git clone https://github.com/ZiangirovIlshat/devops-for-programmers-project-74.git
-   cd devops-for-programmers-project-74
+    bash
+
+    git clone https://github.com/ZiangirovIlshat/devops-for-programmers-project-74.git
+
+    cd devops-for-programmers-project-74
 
 2. Создайте файл .env в корне проекта и добавьте необходимые переменные окружения:
 
-.env
-   DATABASEUSERNAME=yourusername
-   DATABASEPASSWORD=yourpassword
-   DATABASENAME=yourdatabase_name
-   DATABASE_PORT=5432
+    .env
+
+    DATABASEUSERNAME=yourusername
+
+    DATABASEPASSWORD=yourpassword
+
+    DATABASENAME=yourdatabase_name
+
+    DATABASE_PORT=5432
+
 
 
 ## Запуск приложения
@@ -56,4 +63,5 @@ ilshatziangirov1999/devops-for-programmers-project-74:latest
 Вы можете загрузить образ с помощью следующей команды:
 
 bash
+
 docker pull ilshatziangirov1999/devops-for-programmers-project-74:latest
