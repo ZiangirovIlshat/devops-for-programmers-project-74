@@ -53,15 +53,3 @@ bash
 make compose-test
 
 Эта команда соберет Docker образ и выполнит тесты в контейнере.
-
-## Docker образ
-
-Docker образ вашего приложения доступен на Docker Hub под именем:
-
-ilshatziangirov1999/devops-for-programmers-project-74:latest
-
-Вы можете загрузить образ с помощью следующей команды:
-
-bash
-
-docker pull ilshatziangirov1999/devops-for-programmers-project-74:latest
