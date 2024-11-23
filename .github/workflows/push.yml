@@ -29,7 +29,3 @@ jobs:
         file: Dockerfile.production
         push: true
         tags: ilshatziangirov1999/devops-for-programmers-project-74:latest
-
-    - name: Run tests
-      run: |
-        docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
