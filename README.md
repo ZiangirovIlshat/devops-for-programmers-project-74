@@ -1,11 +1,10 @@
-[![Actions Status](https://github.com/ZiangirovIlshat/devops-for-programmers-project-74/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/ZiangirovIlshat/devops-for-programmers-project-74/actions)
-[![CI/CD Pipeline](https://github.com/ZiangirovIlshat/devops-for-programmers-project-74/actions/workflows/push.yml/badge.svg)](https://github.com/ZiangirovIlshat/devops-for-programmers-project-74/actions)
+#[![Actions Status](https://github.com/ZiangirovIlshat/devops-for-programmers-project-74/actions/workflows/hexlet-check.>[![CI/CD Pipeline](https://github.com/ZiangirovIlshat/devops-for-programmers-project-74/actions/workflows/push.yml/badg>
 
 # DevOps for Programmers Project 74
 
 ## Описание
 
-Этот проект представляет собой приложение на Node.js, развернутое с использованием Docker и Docker Compose. Он включает в себя базу данных PostgreSQL и использует Caddy в качестве веб-сервера.
+Этот проект представляет собой приложение на Node.js, развернутое с использованием Docker и Docker Compose. Он включает>
 
 ## Требования
 
@@ -18,12 +17,12 @@
 1. Клонируйте репозиторий:
 
 bash
-   git clone https://github.com/ilshatziangirov1999/devops-for-programmers-project-74.git
+   git clone https://github.com/ZiangirovIlshat/devops-for-programmers-project-74.git
    cd devops-for-programmers-project-74
 
 2. Создайте файл .env в корне проекта и добавьте необходимые переменные окружения:
 
-env
+.env
    DATABASEUSERNAME=yourusername
    DATABASEPASSWORD=yourpassword
    DATABASENAME=yourdatabase_name
@@ -51,7 +50,6 @@ make ci
 ## Docker образ
 
 Docker образ вашего приложения доступен на Docker Hub под именем:
-
 
 ilshatziangirov1999/devops-for-programmers-project-74:latest
 
